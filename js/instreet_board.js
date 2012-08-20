@@ -1,5 +1,5 @@
 ﻿/*******尚街网广告推送插件***********/
-/*******css3版本 只支持moz、webkit内核浏览器以及ie9+和opera***********/
+/*******css3版本 只支持moz、webkit内核浏览器以及opera***********/
 
 
 
@@ -517,7 +517,13 @@
 				 else if(state==="open"){
 					_this.hideBoard(this);
 				 }
-			   }
+			   };
+			   ev.bind(window,"resize",function(){    //窗口大小发生变化后进行重定位
+					var index=b.getAttribute("instreet_img_id"),pos=instreet.getPosition(index);
+					btn.style.cssText="left:"+(pos.x+imgs[index].width)+"px;top:"+(pos.y+10)+"px;";
+					b.style.left=pos.x+"px";b.style.top=(pos.y+126)+"px";
+			        
+			   });
 			};
 			init();
 		
@@ -526,7 +532,7 @@
 		    name : "black_board",
 			showBoard : function(btn){
 			  var _this=this,b=_this.board,
-				  animation=["bounceInLeft","bounceInRight"],ran=Math.floor(Math.random()*2),
+				  animation=["bounceInLeft","bounceInRight","bounceInDown"],ran=Math.floor(Math.random()*3),
 				  state=btn.getAttribute("state");
 			  if(state==="close"){
 			  
