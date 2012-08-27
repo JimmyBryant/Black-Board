@@ -197,148 +197,7 @@
 
 		   
 
-		var imgReady = (function () {
 
-			var list = [], intervalId = null,
-
-		 
-
-			// 用来执行队列
-
-			tick = function () {
-
-				var i = 0;
-
-				for (; i < list.length; i++) {
-
-					list[i].end ? list.splice(i--, 1) : list[i]();
-
-				};
-
-				!list.length && stop();
-
-			},
-
-		 
-
-			// 停止所有定时器队列
-
-			stop = function () {
-
-				clearInterval(intervalId);
-
-				intervalId = null;
-
-			};
-
-		 
-
-			return function (img, ready, load, error) {
-
-				var onready, width, height, newWidth, newHeight;
-
-		
-				// 如果图片被缓存，则直接返回缓存数据
-
-				if (img.complete) {
-
-					ready.call(img);
-
-					load && load.call(img);
-
-					return;
-
-				};
-
-		 
-
-				width = img.width;
-
-				height = img.height;
-
-		 
-
-				// 加载错误后的事件
-
-				img.onerror = function () {
-
-					error && error.call(img);
-
-					onready.end = true;
-
-					img = img.onload = img.onerror = null;
-
-				};
-
-		 
-
-				// 图片尺寸就绪
-
-				onready = function () {
-
-					newWidth = img.width;
-
-					newHeight = img.height;
-
-					if (newWidth !== width || newHeight !== height ||
-
-						// 如果图片已经在其他地方加载可使用面积检测
-
-						newWidth * newHeight > 1024
-
-					) {
-
-						ready.call(img);
-
-						onready.end = true;
-
-					};
-
-				};
-
-				onready();
-
-		 
-
-				// 完全加载完毕的事件
-
-				img.onload = function () {
-
-					// onload在定时器时间差范围内可能比onready快
-
-					// 这里进行检查并保证onready优先执行
-
-					!onready.end && onready();
-
-		 
-
-					load && load.call(img);
-
-		 
-
-					// IE gif动画会循环执行onload，置空onload即可
-
-					img = img.onload = img.onerror = null;
-
-				};
-
-		 
-
-				// 加入队列中定期执行
-
-				if (!onready.end) {
-
-					list.push(onready);
-
-					// 无论何时只允许出现一个定时器，减少浏览器性能损耗
-
-					if (intervalId === null) intervalId = setInterval(tick, 40);
-
-				};
-
-			};
-
-		})();
 
 		
        // cache对象 用于请求并且存储广告数据
@@ -350,10 +209,18 @@
 
 			   for(var i=0,len=imgs.length;i<len;i++){
 			    
-			     var index=i,img=new Image();
+			     var img=new Image(),index=i;
                  img.src=imgs[index].src;				 
 				 img.setAttribute('instreet_img_id',index);
-				 imgReady(img,this.ready,this.loadData);
+				 if(img.complete){
+				    cache.loadData(img);
+				 }else{
+					 img.onload=function(){					   
+					   var obj=this;
+					   obj.onload=null;      
+					   cache.loadData(obj);  
+					 }				 
+			     }
                 
 				}
 
@@ -364,11 +231,11 @@
 				    this.onload=this.onerror=null;
 				}
 			},
-			loadData  :function(){
+			loadData  :function(img){            //请求广告数据
 			   
-			   var index=this.getAttribute('instreet_img_id'),clientImg=imgs[index];
+			   var index=img.getAttribute('instreet_img_id'),clientImg=imgs[index];
                if(clientImg){			   
-				   if(clientImg.width>=config.imiw&&clientImg.height>=config.imih){				   
+				   if(img.width>config.imiw&&img.height>config.imih&&clientImg.clientWidth>=config.imiw&&clientImg.clientHeight>=config.imih){				   
 					   cache.createJsonp(index);
 					   instreet.recordImage(clientImg);
 				   }
@@ -459,9 +326,9 @@
 			},
 			createSwitch:function(data){
 
-				var s=document.createElement("a"),index=data.index,pos=instreet.getPosition(index),left=(pos.x+imgs[index].width)+"px",top=(pos.y+10)+"px";
+				var s=document.createElement("a"),index=data.index,pos=instreet.getPosition(index),left=(pos.x+imgs[index].width)+"px",top=(pos.y+60)+"px";
 				s.className="button_switch";
-				s.innerHTML="open";s.href="javascript:;";
+				s.innerHTML="Instreet";s.href="javascript:;";
 				s.setAttribute("state","close");s.setAttribute("instreet_img_id",index);
 				s.style.cssText="left:"+left+";top:"+top;
 				return s;
@@ -473,26 +340,33 @@
 			},
 			bodyEvents  :function(e){                     //绑定在document.body上的事件 
                var event=ev.getEvent(e),
-				   tar=ev.getTarget(event);
-				if(tar.tagName=="IMG"&&tar.getAttribute("instreet_data_ready")=="true"){
-				   var index=tar.getAttribute("instreet_img_id"),c=instreet.container,buttons=ev.$(c,null,'button_switch');
-				   for(var i=buttons.length;i--;){
-				   
-				       if(buttons[i].getAttribute('instreet_img_id')==index){
-					     boardsArr[index].showBoard(buttons[i]);
-						 return;
+				   tar=ev.getTarget(event),
+				   type=event.type.toString();
+
+				if(type==="mouseover"){
+	
+					if(tar.tagName=="IMG"&&tar.getAttribute("instreet_data_ready")=="true"){
+
+					   var index=tar.getAttribute("instreet_img_id"),c=instreet.container,buttons=ev.$(c,null,'button_switch');
+					   for(var i=buttons.length;i--;){
+					   
+						   if(buttons[i].getAttribute('instreet_img_id')==index){
+							 boardsArr[index].showBoard(buttons[i]);
+							 return;
+						   }
+					   
 					   }
-				   
-				   }
+					
+					}
 				
-				}
-			
+			    }
 			},
 			eventDelegate :function(){
 			
 			  ev.bind(document.body,'mouseover',function(e){
 			   
 			      instreet.bodyEvents(e);
+				  
 			   });
 			}
 			
@@ -506,9 +380,10 @@
 		
 		    this.board=b;
 			this.button=btn;
-			
+
 			var _this=this;
 			function init(){
+
 			   btn.onclick=function(){
 			     var state=this.getAttribute("state");
 				 if(state==="close"){
@@ -520,44 +395,42 @@
 			   };
 			   ev.bind(window,"resize",function(){    //窗口大小发生变化后进行重定位
 					var index=b.getAttribute("instreet_img_id"),pos=instreet.getPosition(index);
-					btn.style.cssText="left:"+(pos.x+imgs[index].width)+"px;top:"+(pos.y+10)+"px;";
+					btn.style.cssText="left:"+(pos.x+imgs[index].width)+"px;top:"+(pos.y+60)+"px;";
 					b.style.left=pos.x+"px";b.style.top=(pos.y+126)+"px";
 			        
 			   });
+			   
 			};
 			init();
 		
 		};
-        blackBoard.prototype={
-		    name : "black_board",
-			showBoard : function(btn){
+		blackBoard.boardName="black_board";
+        blackBoard.prototype.showBoard=function(btn){
+
 			  var _this=this,b=_this.board,
 				  animation=["bounceInLeft","bounceInRight","bounceInDown"],ran=Math.floor(Math.random()*3),
 				  state=btn.getAttribute("state");
 			  if(state==="close"){
-			  
-				  if(b.className===_this.name||b.className===_this.name+" hinge"){
+                  var name=blackBoard.boardName;
+				  if(b.className===name||b.className===name+" hinge"){
 					b.style.display="block";
-					b.className=_this.name+" "+animation[ran];
-					btn.innerHTML="Close";
+					b.className=name+" "+animation[ran];
+					btn.innerHTML="Close Ad";
 					setTimeout(function(){btn.setAttribute("state","open");},1000);
 				  }  
 			  }
-		    },
-			hideBoard : function(btn){
+		};
+			
+		blackBoard.prototype.hideBoard=function(btn){
 
 			  var _this=this,b=_this.board,
-				  name=_this.name+" hinge", state=btn.getAttribute("state");;
+				  name=blackBoard.boardName+" hinge", state=btn.getAttribute("state");;
 			  if(b.className===name||state==="close"){
 				return;
 			  }
 			  b.className=name;
-			  btn.innerHTML="Open";
+			  btn.innerHTML="Instreet";
 			  setTimeout(function(){btn.setAttribute("state","close");b.style.display="none";},1200);
-
-			  
-			
-			}
 		
 		};  
 
