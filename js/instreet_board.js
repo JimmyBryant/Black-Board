@@ -226,17 +226,11 @@
 				}
 
 		    },
-			ready     :function(){
-			    if(this.width<config.imiw||this.height<config.imih){
-				
-				    this.onload=this.onerror=null;
-				}
-			},
 			loadData  :function(img){            //请求广告数据
 			   
 			   var index=img.getAttribute('instreet_img_id'),clientImg=imgs[index];
                if(clientImg){			   
-				   if(img.width>config.imiw&&img.height>config.imih&&clientImg.clientWidth>=config.imiw&&clientImg.clientHeight>=config.imih){				   
+				   if(img.width>=config.imiw&&img.height>=config.imih&&clientImg.clientWidth>=config.imiw&&clientImg.clientHeight>=config.imih){				   
 					   cache.createJsonp(index);
 					   instreet.recordImage(clientImg);
 				   }
