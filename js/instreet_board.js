@@ -26,8 +26,7 @@
            readylist=[],
            config = {
 						redurl	:	"http://www.instreet.cn/click.action",
-					widgetSid	:	"5D6FZL6a13wcmpgBnoVWsU",
-					//widgetSid   :   "77WCO3MnOq5GgvoFH0fbH2",
+					widgetSid	:	"77WCO3MnOq5GgvoFH0fbH2",
 						cssurl 	:	"http://static.instreet.cn/widgets/push/css/instreet_board.css",
 					callbackurl	:	"http://ts.instreet.cn:90/push.action",
 						murl	:	"http://ts.instreet.cn:90/tracker.action",
@@ -226,11 +225,17 @@
 				}
 
 		    },
+			ready     :function(){
+			    if(this.width<config.imiw||this.height<config.imih){
+				
+				    this.onload=this.onerror=null;
+				}
+			},
 			loadData  :function(img){            //请求广告数据
 			   
 			   var index=img.getAttribute('instreet_img_id'),clientImg=imgs[index];
                if(clientImg){			   
-				   if(img.width>=config.imiw&&img.height>=config.imih&&clientImg.clientWidth>=config.imiw&&clientImg.clientHeight>=config.imih){				   
+				   if(img.width>config.imiw&&img.height>config.imih&&clientImg.clientWidth>=config.imiw&&clientImg.clientHeight>=config.imih){				   
 					   cache.createJsonp(index);
 					   instreet.recordImage(clientImg);
 				   }
@@ -446,16 +451,25 @@
 				this.switch=s;
 				return s;
 	    };
+
+		blackBoard.prototype.relocate=function(){                   /*重定位board以及switch*/
+			 var data=this.data,index=data.index,
+				 pos=instreet.getPosition(index),
+				 left=(pos.x+imgs[index].width)+"px",top=(pos.y+60)+"px";
+				 
+			this.switch.style.cssText="left:"+left+";top:"+top;
+		};
 		
         blackBoard.prototype.showBoard=function(){                    /*显示board*/
 
-			  var _this=this,b=_this.board,btn=_this.switch;
+			  var _this=this,b=_this.board,btn=_this.switch,index=_this.data.index;
 				  animation=["bounceInLeft","bounceInRight","bounceInDown"],ran=Math.floor(Math.random()*3),
 				  state=btn.getAttribute("state");
 			  if(state==="close"){
                   var name=blackBoard.boardName;
 				  if(b.className===name||b.className===name+" hinge"){
-					b.style.display="block";
+				    var pos=instreet.getPosition(index),left=pos.x+"px",top=(pos.y+126)+"px";
+			        b.style.cssText="left:"+left+";top:"+top+";display:block;";
 					b.className=name+" "+animation[ran];
 					btn.innerHTML="Close Ad";
 					setTimeout(function(){btn.setAttribute("state","open");},1000);
@@ -477,6 +491,7 @@
 			  setTimeout(function(){btn.setAttribute("state","close");b.style.display="none";},1200);
 		
 		}; 
+
       
         blackBoard.prototype.bindEvents=function(){					/*进行事件绑定*/
               var _this=this,btn=_this.switch,b=_this.board;
@@ -495,6 +510,12 @@
 					b.style.left=pos.x+"px";b.style.top=(pos.y+126)+"px";
 			        
 			   });
+
+			   ev.bind(window,'load',function(){
+
+                    _this.relocate();
+
+			    });
 		
 		};	  
 
