@@ -1,0 +1,33 @@
+.litb-cate-menu {
+	BORDER-BOTTOM-COLOR: rgb(78, 143, 234); BACKGROUND-COLOR: #fff; BORDER-TOP-COLOR: rgb(78, 143, 234); COLOR: #333; BORDER-RIGHT-COLOR: rgb(78, 143, 234); BORDER-LEFT-COLOR: rgb(78, 143, 234);
+}
+.litb-cate-menu .cate-menu {
+	BACKGROUND-COLOR: #fff
+}
+.litb-cate-menu .cate-menu H2 SPAN {
+	COLOR: #666
+}
+.litb-cate-menu .cate-menu H2 A {
+	BORDER-BOTTOM-COLOR: #e7e6e3; BORDER-TOP-COLOR: #fff; BORDER-RIGHT-COLOR: #fff; BORDER-LEFT-COLOR: #fff
+}
+.litb-cate-menu .cate-menu H2 A:hover {
+	COLOR: #333
+}
+.cate-menu H2 A EM {
+	BORDER-BOTTOM-COLOR: #fff; BORDER-TOP-COLOR: #fff; BORDER-RIGHT-COLOR: #fff; BORDER-LEFT-COLOR: #bdbdbd
+}
+#cate-menu DL A {
+	COLOR: #333; FONT-SIZE: 14px
+}
+#cate-menu DD A {
+	FONT-SIZE: 13px
+}
+#cate-menu DL A:hover {
+	COLOR: #333; TEXT-DECORATION: underline
+}
+#cate-menu DL A.red {
+	COLOR: #990000
+}
+.cate-menu-out {
+	border-color: rgb(78, 143, 234);
+}
