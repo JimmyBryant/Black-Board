@@ -1021,10 +1021,10 @@ A.more_product:visited {
 	BORDER-BOTTOM: #ddd 1px solid; BORDER-LEFT: #ddd 1px solid; PADDING-BOTTOM: 2px; MARGIN: 2px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; DISPLAY: block; FLOAT: left; BORDER-TOP: #ddd 1px solid; CURSOR: pointer; BORDER-RIGHT: #ddd 1px solid; PADDING-TOP: 2px
 }
 #relate_cate {
-	WIDTH: 487px; HEIGHT: 131px
+	WIDTH: 487px;
 }
 #relate_cate LI {
-	TEXT-INDENT: 2em; WIDTH: 33%; FLOAT: left
+	TEXT-INDENT: 2em; WIDTH: 50%; FLOAT: left
 }
 #search_feedback {
 	PADDING-BOTTOM: 0px; PADDING-LEFT: 10px; WIDTH: 240px; PADDING-RIGHT: 10px; BACKGROUND: url(../images/search_cate.gif) repeat-x left bottom; HEIGHT: 131px; PADDING-TOP: 0px
@@ -1214,7 +1214,8 @@ A.more_product:visited {
 	WIDTH: 747px; OVERFLOW: hidden
 }
 #product_main_con #search_feedback {
-	WIDTH: 230px
+	width: 230px;
+	height: 166px;
 }
 .inquiry {
 	PADDING-LEFT: 250px; BACKGROUND: url(../images/bag.gif) no-repeat 20px 30px; PADDING-TOP: 15px
@@ -2025,4 +2026,26 @@ A .list_gallery:hover {
 }
 A.button_f {
 	BORDER-BOTTOM: #ddd 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #ddd 1px solid; DISPLAY: block; BACKGROUND: url(../images/buttonbg_011228964364.gif) repeat-x; HEIGHT: 17px; COLOR: #000; FONT-SIZE: 13px; BORDER-TOP: #ddd 1px solid; BORDER-RIGHT: #ddd 1px solid; TEXT-DECORATION: none
+}
+#product-zooming-box{
+	float: left;
+	width: 360px;
+	padding: 10px;
+}
+ .clearfix:before,
+ .clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+ .clearfix:after {
+    clear: both;
+}
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+ .clearfix {
+    *zoom: 1;
 }

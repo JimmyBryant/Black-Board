@@ -6,7 +6,6 @@ xmlns:fb="http://www.facebook.com/2008/fbml" dir="ltr" lang="en">
     <title>LinkedNew</title>
     <link rel="stylesheet" type="text/css" href="assets/css/global.css">
     <link rel="stylesheet" type="text/css" href="assets/css/stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="assets/css/vImageBox.css">
     <link rel="shortcut icon" href="http://www.linkednew.com/favicon.ico">
     <link rel="icon" type="image/gif" href="http://www.linkednew.com/animated_favicon1.gif">
 
@@ -19,9 +18,8 @@ xmlns:fb="http://www.facebook.com/2008/fbml" dir="ltr" lang="en">
     <link rel="stylesheet" type="text/css" href="assets/css/skin.css">
     </link>
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.font.css">
-
+    <link rel="stylesheet" type="text/css" href="assets/css/etalage.css">
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="assets/js/vImageBox.js"></script>
     <script language="JavaScript" src="assets/js/en.js" type="text/JavaScript">
     </script>
     <script type="text/javascript" src="assets/js/prototype.js"></script>
@@ -2494,7 +2492,50 @@ var shipping_info ='<h2 class=\"blue\">Shipping Methods:</h2><div class=\"margin
             <div style="padding-bottom: 2px; padding-left: 0px; padding-right: 0px; padding-top: 2px"
                 class="margin_t allborder">
                 <div class="for_gray_bg">
+                    <!-- product image zooming box -->
+                    <div id="product-zooming-box">
+                        <ul id="image-zooming">
+                        <li>
+                        <!-- This is the large (zoomed) image source: -->
+                        <img class="etalage_source_image" src="http://www.linkednew.com/images/v/20140320060333.jpg" title="" />
+                        <!-- This is the thumb image source (if not provided, it will use the large image source and resize it): -->
+                        <img class="etalage_thumb_image" src="http://www.linkednew.com/images/l/20140320060333.jpg" />
+                        </li>
+                        <li>
+                        <img class="etalage_source_image" src="http://www.linkednew.com/images/v/20142508122537-126000061.jpg" title="" />
+                        <!-- This is the thumb image source (if not provided, it will use the large image source and resize it): -->
+                        <img class="etalage_thumb_image" src="http://www.linkednew.com/images/l/20142508122537-126000061.jpg" />
+                        </li>
+                        <li>
+                        <img class="etalage_source_image" src="http://www.linkednew.com/images/v/20142508122557-126000061.jpg" title="" />
+                        <!-- This is the thumb image source (if not provided, it will use the large image source and resize it): -->
+                        <img class="etalage_thumb_image" src="http://www.linkednew.com/images/l/20142508122557-126000061.jpg" />
+                        </li>
+                        <li>
+                        <img class="etalage_source_image" src="http://www.linkednew.com/images/v/20143108123137-126000061.jpg" title="" />
+                        <!-- This is the thumb image source (if not provided, it will use the large image source and resize it): -->
+                        <img class="etalage_thumb_image" src="http://www.linkednew.com/images/l/20143108123137-126000061.jpg" />
+                        </li>
+                       <li>
+                        <img class="etalage_source_image" src="http://www.linkednew.com/images/v/20143208123236-126000061.jpg" title="" />
+                        <!-- This is the thumb image source (if not provided, it will use the large image source and resize it): -->
+                        <img class="etalage_thumb_image" src="http://www.linkednew.com/images/l/20143208123236-126000061.jpg" />
+                        </li>
+                       <li>
+                        <img class="etalage_source_image" src="http://www.linkednew.com/images/v/20143208123256-126000061.jpg" title="" />
+                        <!-- This is the thumb image source (if not provided, it will use the large image source and resize it): -->
+                        <img class="etalage_thumb_image" src="http://www.linkednew.com/images/l/20143208123256-126000061.jpg" />
+                        </li>
+                        <li>
+                        <img class="etalage_source_image" src="http://www.linkednew.com/images/v/20144508124510-126000061.jpg" title="" />
+                        <!-- This is the thumb image source (if not provided, it will use the large image source and resize it): -->
+                        <img class="etalage_thumb_image" src="http://www.linkednew.com/images/l/20144508124510-126000061.jpg" />
+                        </li>
+
+                        </ul>
+                    </div>
                     <!-- BOF Product Flash-->
+                    <!--
                     <div style="width: 335px" id="product_flash" class="fl margin_t g_t_c">
                         <ul>
                             <li>
@@ -2532,6 +2573,7 @@ var shipping_info ='<h2 class=\"blue\">Shipping Methods:</h2><div class=\"margin
                         </script>
 
                     </div>
+                     -->
                     <!-- EOF Product Flash-->
                     <!-- BOF Product Tools-->
                     <div id="product_info_con" class="fr black">
@@ -2624,7 +2666,7 @@ var shipping_info ='<h2 class=\"blue\">Shipping Methods:</h2><div class=\"margin
                                             you. LinkedNew.com will not use the Email address for any other purpose. By sending
                                             this link to a friend, you agree to the Email agreement.
                                             <iframe style="border-right-width: 0px; width: 350px; border-top-width: 0px; border-bottom-width: 0px;
-                                                height: 240px; border-left-width: 0px;" id="Iframe2" src="/products/tellafriends.aspx?pId=126000061"
+                                                height: 240px; border-left-width: 0px;" id="Iframe2" src="http://www.linkednew.com/products/tellafriends.aspx?pId=126000061"
                                                 scrolling="NO" frameborder="0;" name="reviewIframe1"></iframe>
                                         </div>
                                         <b><em></em></b>
@@ -3198,7 +3240,7 @@ Specifications:<br>
                                         <tr>
                                             <td valign="top" colspan="3">
                                                 <iframe style="border-right-width: 0px; width: 360px; border-top-width: 0px; border-bottom-width: 0px;
-                                                    height: 90px; border-left-width: 0px;" id="reviewIframe" src="/mv.aspx?pid=126000061"
+                                                    height: 90px; border-left-width: 0px;" id="reviewIframe" src="http://www.linkednew.com/mv.aspx?pid=126000061"
                                                     frameborder="0" scrolling="NO" name="reviewIframe"></iframe>
                                             </td>
                                         </tr>
@@ -3225,39 +3267,42 @@ Specifications:<br>
                     </div>
                     <div id="also" class="margin_t maxwidth" align="center">
                         <iframe style="border-right-width: 0px; width: 720px; border-top-width: 0px; border-bottom-width: 0px;
-                            height: 200px; border-left-width: 0px;" id="Iframe1" src="/products/productsdetails.aspx?pId=126000061"
+                            height: 200px; border-left-width: 0px;" id="Iframe1" src="http://www.linkednew.com/products/productsdetails.aspx?pId=126000061"
                             scrolling="NO" frameborder="0;" name="reviewIframe1"></iframe>
                     </div>
+
+                    <div class="clearfix">
+                    <!-- related cate -->
                     <div id="relate_cate" class="fl allborder line_180">
                         <h4 class="red line_30px in_1em">
-
-                                  Related Categories</h4>
-                    <ul>
-                        <li><a title="USB Cable" href=" /search.aspx?key=Usb Cable&allKey=&cat=1&psize=24&page=1&gridview=0">
-                            USB Cables </a></li>
-                        <li><a title="AC Adapter Chargers" href="/search.aspx?key=AC Charger&allKey=&cat=1&psize=24&page=1&gridview=0">
-                            AC Adapter Chargers </a></li>
-                        <li><a title="Laptop Batteries" href="/search.aspx?key=Laptop Battery&allKey=&cat=1&psize=24&page=1&gridview=0">
-                            Laptop Batteries </a></li>
-                        <li><a title="USB Speakers" href="/search.aspx?key=speaker&allKey=&cat=1&psize=24&page=1&gridview=0">
-                            USB Speakers </a></li>
-                        <li><a title="Bluetooth Keyboards" href="/search.aspx?key=Bluetooth Keyboard&allKey=&cat=1&psize=24&page=1&gridview=0">
-                            Bluetooth Keyboards </a></li>
-                        <li><a title="Led Accessories" href="/search.aspx?key=Led&allKey=&cat=1&psize=24&page=1&gridview=0">
-                            Led Accessories </a></li>
-                        <li><a title="Hard Drive Related" href="/search.aspx?key=Hard Drive&allKey=&cat=1&psize=24&page=1&gridview=0">
-                            Hard Drive Related </a></li>
-                        <li><a title="Fashion Replica Sunglasses" href="/search.aspx?key=Fashion sunglass&allKey=&cat=1&psize=24&page=1&gridview=0">
-                            Fashion Replica Sunglasses</a></li>
-                        <li><a title="DC 12V 24V Switch Power" href="/search.aspx?key=switch power&allKey=&cat=1&psize=24&page=1&gridview=0">
-                            12V 24V Switch Power </a></li>
-                        <li><a title="antenna" href="/search.aspx?key=antenna&allKey=&cat=1&psize=24&page=1&gridview=0">
-                            Radio Antenna</a></li>
-                        <li><a title="iphone accessories" href="/search.aspx?key=iphone&allKey=&cat=1&psize=24&page=1&gridview=0">
-                            Iphone Accessories</a></li>
-                        <li><a title="samsung phone accessories" href="/search.aspx?key=Samsung&allKey=&cat=1&psize=24&page=1&gridview=0">
-                            Samsung Phone </a></li>
-                    </ul>
+                            Related Categories
+                        </h4>
+                        <ul class="clearfix">
+                            <li><a title="USB Cable" href=" /search.aspx?key=Usb Cable&allKey=&cat=1&psize=24&page=1&gridview=0">
+                                USB Cables </a></li>
+                            <li><a title="AC Adapter Chargers" href="/search.aspx?key=AC Charger&allKey=&cat=1&psize=24&page=1&gridview=0">
+                                AC Adapter Chargers </a></li>
+                            <li><a title="Laptop Batteries" href="/search.aspx?key=Laptop Battery&allKey=&cat=1&psize=24&page=1&gridview=0">
+                                Laptop Batteries </a></li>
+                            <li><a title="USB Speakers" href="/search.aspx?key=speaker&allKey=&cat=1&psize=24&page=1&gridview=0">
+                                USB Speakers </a></li>
+                            <li><a title="Bluetooth Keyboards" href="/search.aspx?key=Bluetooth Keyboard&allKey=&cat=1&psize=24&page=1&gridview=0">
+                                Bluetooth Keyboards </a></li>
+                            <li><a title="Led Accessories" href="/search.aspx?key=Led&allKey=&cat=1&psize=24&page=1&gridview=0">
+                                Led Accessories </a></li>
+                            <li><a title="Hard Drive Related" href="/search.aspx?key=Hard Drive&allKey=&cat=1&psize=24&page=1&gridview=0">
+                                Hard Drive Related </a></li>
+                            <li><a title="Fashion Replica Sunglasses" href="/search.aspx?key=Fashion sunglass&allKey=&cat=1&psize=24&page=1&gridview=0">
+                                Fashion Replica Sunglasses</a></li>
+                            <li><a title="DC 12V 24V Switch Power" href="/search.aspx?key=switch power&allKey=&cat=1&psize=24&page=1&gridview=0">
+                                12V 24V Switch Power </a></li>
+                            <li><a title="antenna" href="/search.aspx?key=antenna&allKey=&cat=1&psize=24&page=1&gridview=0">
+                                Radio Antenna</a></li>
+                            <li><a title="iphone accessories" href="/search.aspx?key=iphone&allKey=&cat=1&psize=24&page=1&gridview=0">
+                                Iphone Accessories</a></li>
+                            <li><a title="samsung phone accessories" href="/search.aspx?key=Samsung&allKey=&cat=1&psize=24&page=1&gridview=0">
+                                Samsung Phone </a></li>
+                        </ul>
 
                     </div>
                     <!-- BOF Search Feedback-->
@@ -3271,6 +3316,7 @@ Specifications:<br>
                                 class="u" title="help" href="http://www.LinkedNew.com/">Click here</a></li></ul>
                     </div>
                     <!-- EOF Buyer Guide -->
+                    </div>
                 </div>
                 <!-- right mini_frame start -->
                 <div class="mini_frame fr">
@@ -3745,12 +3791,27 @@ return true;
     <!-- BEGIN LivePerson Monitor. -->
     </div>
     <!-- end of footer -->
-
+    <!-- page script -->
+    <script type="text/javascript" src="assets/js/jquery.etalage.min.js"></script>
     <script type="text/javascript" src="assets/js/linked_menu.js"></script>
     <script type="text/javascript">
-        var litb = litb||{};
-        litb['category_menu'] = linked_menu_data;
-        $('.litb-cate-menu').litbMenuShow({ 'data': litb["category_menu"] });
+        $(function(){
+            $('#image-zooming').etalage({
+                thumb_image_width: 280,
+                thumb_image_height: 280,
+                source_image_width: 500,
+                source_image_height: 500,
+                show_hint: true,
+                small_thumbs: 4,
+                autoplay: false,
+                zoom_easing: false,
+                zoom_area_distance: 5
+            });
+            var litb = litb||{};
+            litb['category_menu'] = linked_menu_data;
+            $('.litb-cate-menu').litbMenuShow({ 'data': litb["category_menu"] });
+        })
+
     </script>
     <!-- end of page script -->
 </body>
