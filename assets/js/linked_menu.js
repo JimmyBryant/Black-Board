@@ -31,7 +31,7 @@ $.fn.litbMenuShow = function (options) {
 
         $('.cate-menu-out', $this).each(function (m) {
             var $me = $(this);
-            var mh = $me.height();
+            var mh = 32;
             var elm = $('.cate-menu-sub>dl', this);
             var size = Math.ceil(elm.size() / 2), mSize = 0, rSize = 0;
             me.options.menuHeight = $('.cate-menu').height();
@@ -141,32 +141,23 @@ $.fn.litbMenuShow = function (options) {
         me.setNewsletterHeight(me.options.height);
     };
     me.init();
-    if ($this.attr('page') != "index") {
-        $this.parent('dl').find('dt>a').mouseenter(function () {
-            if ($this.is(':hidden')) { $this.fadeIn('100') }
 
-        });
-        $this.hover(function () {
-            litb['onMenu'] = true;
-        }, function () {
-            litb['onMenu'] = false;
-            //if(me.options.menuDeHeight == 0) me.options.menuDeHeight = me.options.height;
-            me.options.isFrist = true;
-            if (isIE9) {
-                $this.hide();
-                $('.cate-menu').stop().css({ 'width': 240 + "px" });
-                $this.show();
-            } else {
-                $('.cate-menu').stop().css({ 'width': 240 + "px" });
+    if ($this.hasClass('cate-menu-hover')) {
+        $('#show-all-category').on('mouseover mouseout',function(e){
+            if(e.type=='mouseover'){
+                $this.stop().fadeIn();
+            }else if(e.type="mouseout"){
+                if(!$.contains(me[0],e.relatedTarget)){
+                    $this.stop().hide();
+                }
             }
         });
-        $(document).click(function () {
-            if (!litb['onMenu']) {
-                $this.fadeOut('fast');
-                litb['onMenu'] = false;
-                me.options.isFrist = true;
+        $this.on('mouseleave',function(e){
+            var relobj = e.relatedTarget;
+            if(document.getElementById('show-all-category')!==relobj){
+               $this.stop().hide();
             }
-        });
+        })
     } else {
         //me.options.menuDeHeight = $('.cate-menu').height();
         $this.hover(function () {

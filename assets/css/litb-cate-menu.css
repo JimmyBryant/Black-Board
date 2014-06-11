@@ -13,6 +13,9 @@
 .litb-cate-menu-specialoffer .red {
 	COLOR: #990000
 }
+.cate-menu-hover{
+	display: none;
+}
 #cate-menu{
 	display: block;
 	height: 350px; overflow: hidden; width: 240px;

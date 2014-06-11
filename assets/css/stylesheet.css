@@ -1,0 +1,126 @@
+#tabs UL LI DIV {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; PADDING-TOP: 5px
+}
+#tabs UL LI A DIV.tab_left {
+	TEXT-INDENT: 1em; WIDTH: 146px
+}
+#tabs UL LI DIV.tab_left {
+	TEXT-INDENT: 1em; WIDTH: 146px
+}
+#tabs UL LI A DIV.tab_center {
+	TEXT-INDENT: 1em; WIDTH: 130px
+}
+#tabs UL LI DIV.tab_center {
+	TEXT-INDENT: 1em; WIDTH: 130px
+}
+DIV.tab_left P A {
+	PADDING-LEFT: 1em
+}
+DIV.tab_center P A {
+	PADDING-LEFT: 1em
+}
+#menu_index_top LI A:link {
+	TEXT-INDENT: 1em
+}
+#menu_index_top LI A:visited {
+	TEXT-INDENT: 1em
+}
+#nav_chat {
+	LINE-HEIGHT: 15px; TEXT-INDENT: 43px; WIDTH: 230px; BACKGROUND: url(../images/chat_bg.gif) no-repeat right top; PADDING-TOP: 15px
+}
+A.btn_search {
+	BACKGROUND: url(../images/btn_go.gif) no-repeat 0px 0px
+}
+A.btn_search:hover {
+	BACKGROUND: url(../images/btn_go.gif) no-repeat 0px -22px
+}
+A.icon_inquiry {
+	WIDTH: 130px; BACKGROUND: url(images/buttons/btn_inquiy.gif) no-repeat
+}
+.free_shipping {
+	WIDTH: 74px; BACKGROUND: url(../images/free_s.gif) no-repeat
+}
+.sale_item {
+	BACKGROUND: url(../images/sale_item.gif) no-repeat
+}
+.almost_sold_out_b {
+	BACKGROUND: url(../images/almost_sold.gif) no-repeat
+}
+.almost_sold_out {
+	BACKGROUND: url(../images/almost_sold.gif) no-repeat
+}
+.product_count_s {
+	WIDTH: 24px; HEIGHT: 24px; LEFT: 62px
+}
+.product_count_special_s {
+	WIDTH: 24px; HEIGHT: 24px; LEFT: 62px
+}
+.sale_item_s {
+	BACKGROUND: url(../images/sale_item_s.gif) no-repeat
+}
+.sold_out_s {
+	BACKGROUND: url(../images/sold_out_s.gif) no-repeat
+}
+.almost_sold_out_s {
+	BACKGROUND: url(../images/almost_sold_s.gif) no-repeat
+}
+.sale_item_b {
+	BACKGROUND: url(../images/sale_item.gif) no-repeat
+}
+.sold_out_b {
+	BACKGROUND: url(../images/sold_out_b.gif) no-repeat
+}
+.free_shipping_b {
+	BACKGROUND: url(../images/free_s.gif) no-repeat
+}
+.next_page {
+	BACKGROUND: url(../images/pagebar/next.gif) no-repeat 40px center
+}
+.list_bar .category {
+	PADDING-BOTTOM: 0px; TEXT-INDENT: 14px; PADDING-LEFT: 0px; PADDING-RIGHT: 10px; PADDING-TOP: 0px
+}
+.list_bar .category_ {
+	PADDING-BOTTOM: 0px; TEXT-INDENT: 14px; PADDING-LEFT: 0px; PADDING-RIGHT: 10px; PADDING-TOP: 0px
+}
+.list_bar .li1 {
+	WIDTH: 187px
+}
+.list_bar .li2 {
+	WIDTH: 258px
+}
+.list_bar .select {
+	WIDTH: 100px; MARGIN-RIGHT: 8px
+}
+.list_bar .select1 {
+	WIDTH: 40px; MARGIN-RIGHT: 8px
+}
+.list_list {
+	TEXT-INDENT: 2em
+}
+.list_grid {
+	TEXT-INDENT: 2em
+}
+.list_gallery {
+	TEXT-INDENT: 2em; WIDTH: 60px
+}
+.inquiry {
+	BACKGROUND: url(../images/bag.gif) no-repeat 20px 30px
+}
+.txt_review {
+	BACKGROUND: url(../images/review_bg.jpg) no-repeat
+}
+#tit_t {
+	BACKGROUND: url(../images/select_title.gif)
+}
+#tit_t B {
+	BACKGROUND: url(../images/select_title.gif)
+}
+.trusful {
+	BACKGROUND: url(../images/trustful.jpg) #fff no-repeat
+}
+.bulksale_free_shipping_s {
+	MARGIN: 4px; WIDTH: 74px; DISPLAY: block; BACKGROUND: url(../images/bulk-freeshipping.gif) no-repeat; HEIGHT: 21px
+}
+.bulksale_free_shipping {
+	MARGIN: 4px; WIDTH: 144px; DISPLAY: block; BACKGROUND: url(../images/bulksale.gif) no-repeat; HEIGHT: 21px
+}

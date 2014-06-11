@@ -2850,7 +2850,7 @@ padding-left: 0px;
 padding-right: 0px;
 padding-top: 20px;
 }
-.btn-all-category{
+.btn-all-category,.btn-all-category:link{
 	float: left;
 	display: block;
 	color: #FFF;
